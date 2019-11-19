@@ -1,0 +1,8 @@
+*.suo
+*.VC.db
+*.VC.opendb
+*.sln
+*.vcxproj
+*.user
+*.ipch
+*.filters
