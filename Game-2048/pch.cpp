@@ -30,16 +30,11 @@ void print_all(int arr[][4]) {
 	}
 }
 void init(int arr[][4]) {
-	/*string solidLine[4] = { "------" , "------" , "------" , "-------" };
-	string withNum1[9] = { "|", "0", "|", "0", "|", "0", "|", "0", "|" };
-	string withNum2[9] = { "|", "0", "|", "0", "|", "0", "|", "0", "|" };
-	string withNum3[9] = { "|", "0", "|", "0", "|", "0", "|", "0", "|" };
-	string withNum4[9] = { "|", "0", "|", "0", "|", "0", "|", "0", "|" }; */
-	int val1, val2;
+	int val1;// val2;
 	val1 = randomNum(1, 2);
-	val2 = randomNum(1, 2);
+	//val2 = randomNum(1, 2);
 	update(2*val1, arr);
-	update(2*val2, arr);
+	//update(2*val2, arr);
 }
 
 bool checkZeroSpace(int arr[][4]) {
@@ -64,18 +59,14 @@ int randomNum(int a, int b) {
 void update(int newValue, int arr[][4]) {
 	int n = 0; // number of empty space
 	int ind = 0;
-	vector<int> index;
-	/*for (int i = 0; i < 16; i++) {
-		if (**(arr + i) == 0) {
-			n++;
-			index.push_back(i);
-		}
-	} */
+	vector<int> index1;
+	vector<int> index2;
 	for (int i = 0; i < 4; i++) {
 		for (int j = 0; j < 4; j++) {
 			if (arr[i][j] == 0) {
 				n++;
-				index.push_back(i+j);
+				index1.push_back(i);
+				index2.push_back(j);
 			}
 		}
 	}
@@ -83,8 +74,8 @@ void update(int newValue, int arr[][4]) {
 		gameOver();
 	}
 	else {
-		ind = randomNum(0, index.size()-1);
-		**(arr + index[ind]) = newValue;
+		ind = randomNum(0, index1.size()-1);
+		arr[index1[ind]][index2[ind]] = newValue;
 		system("cls");
 		print_all(arr);
 	}

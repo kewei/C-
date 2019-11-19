@@ -7,3 +7,8 @@
 *.ipch
 *.filters
 *.log
+*.exe
+*.ilk
+*.pdb
+*.tlog
+*.obj
